@@ -4,14 +4,11 @@ import SearchPokemon from "./components/SearchPokemon";
 import PokemondataContainer from "./components/PokemoneDataContainer";
 
 function App() {
-  const [pokemonName, setPokemonName] = useState("");
+  const [pokemonData, setPokemonData] = useState();
   return (
     <>
-      <SearchPokemon
-        setPokemonName={setPokemonName}
-        pokemonName={pokemonName}
-      />
-      <PokemondataContainer pokemonName={pokemonName} />
+      <SearchPokemon setPokemonData={setPokemonData} />
+      {pokemonData && <PokemondataContainer />}
     </>
   );
 }

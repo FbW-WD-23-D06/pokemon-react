@@ -2,9 +2,10 @@ import { useState } from "react";
 import { POKEMON_BASISC_API_URL } from "../data/api";
 import { BallTriangle } from "react-loader-spinner";
 // eslint-disable-next-line react/prop-types
-export default function SearchPokemonInp({ setPokemonName, pokemonName }) {
+export default function SearchPokemonInp({ setPokemonData }) {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [pokemonName, setPokemonName] = useState("");
 
   const handleOnChangePokemoneName = (e) => {
     setPokemonName(e.target.value);
@@ -16,7 +17,7 @@ export default function SearchPokemonInp({ setPokemonName, pokemonName }) {
       const data = await fetch(`${POKEMON_BASISC_API_URL}/${pokemonName}`);
       const response = await data.json();
       console.log("response", response);
-      return response;
+      setPokemonData(response);
     } catch (err) {
       console.log(err);
       setError(err);
