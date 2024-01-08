@@ -1,9 +1,12 @@
+import FavoritesPokemonBtn from "./FavoritesPokemonBtn";
+
 /* eslint-disable react/prop-types */
-export default function PokemondataContainer({ pokemonData }) {
+export default function PokemonDataContainer({ pokemonData }) {
   const { name, sprites, types, stats } = pokemonData;
 
   return (
     <>
+    <FavoritesPokemonBtn pokemonData={pokemonData} />
       <h2>{name}</h2>
       <img src={sprites.front_default} alt={name} />
       <h3>Types</h3>

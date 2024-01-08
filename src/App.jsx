@@ -1,14 +1,14 @@
 import "./App.css";
 import { useState } from "react";
 import SearchPokemon from "./components/SearchPokemon";
-import PokemondataContainer from "./components/PokemoneDataContainer";
+import PokemonDataContainer from "./components/PokemoneDataContainer";
 
 function App() {
   const [pokemonData, setPokemonData] = useState();
   return (
     <>
       <SearchPokemon setPokemonData={setPokemonData} />
-      {pokemonData && <PokemondataContainer pokemonData={pokemonData} />}
+      {pokemonData && <PokemonDataContainer pokemonData={pokemonData} />}
     </>
   );
 }
