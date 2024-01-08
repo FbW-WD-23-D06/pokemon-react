@@ -11,10 +11,10 @@ function App() {
   );
 
   useEffect(() => {
-    // Update localStorage only when favoritePokemons changes
+    if (!favoritePokemons.length === 0) return;
     localStorage.setItem("favoritePokemons", JSON.stringify(favoritePokemons));
-  }, [favoritePokemons]); // Dependency array includes only favoritePokemons
-  
+  }, [favoritePokemons]);
+
   return (
     <>
       <SearchPokemon setPokemonData={setPokemonData} />
@@ -26,7 +26,7 @@ function App() {
         />
       )}
 
-      {favoritePokemons && (
+      {favoritePokemons.length > 0 && (
         <FavoritesPokemon favoritePokemons={favoritePokemons} />
       )}
     </>
