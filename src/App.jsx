@@ -1,13 +1,13 @@
 import "./App.css";
 import { useState } from "react";
-import SearchPokemonInp from "./components/SearchPokemonInp";
+import SearchPokemon from "./components/SearchPokemon";
 import PokemondataContainer from "./components/PokemoneDataContainer";
 
 function App() {
   const [pokemonName, setPokemonName] = useState("");
   return (
     <>
-      <SearchPokemonInp
+      <SearchPokemon
         setPokemonName={setPokemonName}
         pokemonName={pokemonName}
       />
