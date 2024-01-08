@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <SearchPokemon setPokemonData={setPokemonData} />
-      {pokemonData && <PokemondataContainer />}
+      {pokemonData && <PokemondataContainer pokemonData={pokemonData} />}
     </>
   );
 }
