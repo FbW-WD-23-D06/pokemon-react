@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
-export default function FavoritesPokemonBtn({ pokemonData }) {
-  let favoritePokemons =
-    JSON.parse(localStorage.getItem("favoritePokemons")) || [];
+export default function FavoritesPokemonBtn({
+  pokemonData,
+  favoritePokemons,
+  setFavoritePokemons,
+}) {
   const currentPokemonAlreadySaved = favoritePokemons.includes(
     pokemonData.name
   );
@@ -11,10 +13,8 @@ export default function FavoritesPokemonBtn({ pokemonData }) {
       alert("already saved");
       return;
     }
-    localStorage.setItem(
-      "favoritePokemons",
-      JSON.stringify([...favoritePokemons, pokemonData.name])
-    );
+    setFavoritePokemons([...favoritePokemons, pokemonData.name]);
+   
   };
 
   return (
