@@ -20,8 +20,7 @@ export default function SearchPokemonInp({ setPokemonName, pokemonName }) {
     } catch (err) {
       console.log(err);
       setError(err);
-    }
-    finally{
+    } finally {
       setIsLoading(false);
     }
   };
@@ -35,19 +34,20 @@ export default function SearchPokemonInp({ setPokemonName, pokemonName }) {
         value={pokemonName}
         onChange={handleOnChangePokemoneName}
       />
-      <button onClick={fetchPokemon}>get pokemon data</button>
-      {isLoading && (
-        <BallTriangle
-          height={100}
-          width={100}
-          radius={5}
-          color="#4fa94d"
-          ariaLabel="ball-triangle-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      )}
+      <button onClick={fetchPokemon}>
+        {isLoading ? (
+          <BallTriangle
+            height={20}
+            width={40}
+            radius={5}
+            color="#4fa94d"
+            ariaLabel="ball-triangle-loading"
+            visible={true}
+          />
+        ) : (
+          "get pokemon data"
+        )}
+      </button>
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </>
   );
