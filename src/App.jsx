@@ -11,20 +11,10 @@ function App() {
   );
 
   useEffect(() => {
-    if (!pokemonData?.name) return;
-    const currentPokemonAlreadySaved = favoritePokemons.includes(
-      pokemonData?.name
-    );
-    if (!currentPokemonAlreadySaved) {
-      localStorage.setItem(
-        "favoritePokemons",
-        JSON.stringify([...favoritePokemons, pokemonData?.name])
-      );
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [favoritePokemons]);
-
+    // Update localStorage only when favoritePokemons changes
+    localStorage.setItem("favoritePokemons", JSON.stringify(favoritePokemons));
+  }, [favoritePokemons]); // Dependency array includes only favoritePokemons
+  
   return (
     <>
       <SearchPokemon setPokemonData={setPokemonData} />
