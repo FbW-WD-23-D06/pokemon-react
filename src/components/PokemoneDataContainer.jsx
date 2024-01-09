@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import FavoritesPokemonBtn from "./FavoritesPokemonBtn";
-import { AppContext } from "../contexts/AppContext";
+import { useAppContext } from "../contexts/AppContext";
 
 /* eslint-disable react/prop-types */
 export default function PokemonDataContainer({
   favoritePokemons,
   setFavoritePokemons,
 }) {
-  const { pokemonData } = useContext(AppContext);
+  const { pokemonData } = useAppContext();
   const { name, sprites, types, stats } = pokemonData;
 
   return (

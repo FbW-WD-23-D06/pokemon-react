@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState, createContext } from "react";
 
-export const AppContext = createContext(null);
+const AppContext = createContext(null);
+
+export const useAppContext = () => useContext(AppContext);
 
 export function AppContextProvider({ children }) {
   const [pokemonData, setPokemonData] = useState();
