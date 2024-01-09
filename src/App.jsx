@@ -5,7 +5,7 @@ import PokemonDataContainer from "./components/PokemoneDataContainer";
 import FavoritesPokemon from "./components/FavoritesPokemon";
 
 function App() {
-  const [pokemonData, setPokemonData] = useState();
+  // const [pokemonData, setPokemonData] = useState();
   const [favoritePokemons, setFavoritePokemons] = useState(
     JSON.parse(localStorage.getItem("favoritePokemons")) || []
   );
