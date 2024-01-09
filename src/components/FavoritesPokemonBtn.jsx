@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
+
 /* eslint-disable react/prop-types */
 export default function FavoritesPokemonBtn({
-  pokemonData,
   favoritePokemons,
   setFavoritePokemons,
 }) {
+  const { pokemonData } = useContext(AppContext);
   const currentPokemonAlreadySaved = favoritePokemons.includes(
     pokemonData.name
   );
@@ -14,7 +17,6 @@ export default function FavoritesPokemonBtn({
       return;
     }
     setFavoritePokemons([...favoritePokemons, pokemonData.name]);
-   
   };
 
   return (

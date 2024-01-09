@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { POKEMON_BASISC_API_URL } from "../data/api";
 import { BallTriangle } from "react-loader-spinner";
+import { AppContext } from "../contexts/AppContext";
+
 // eslint-disable-next-line react/prop-types
-export default function SearchPokemonInp({ setPokemonData }) {
+export default function SearchPokemonInp() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [pokemonName, setPokemonName] = useState("");
+  const { setPokemonData } = useContext(AppContext);
 
   const handleOnChangePokemoneName = (e) => {
     setPokemonName(e.target.value);

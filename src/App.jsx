@@ -1,14 +1,15 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import SearchPokemon from "./components/SearchPokemon";
 import PokemonDataContainer from "./components/PokemoneDataContainer";
 import FavoritesPokemon from "./components/FavoritesPokemon";
+import { AppContext } from "./contexts/AppContext";
 
 function App() {
-  // const [pokemonData, setPokemonData] = useState();
   const [favoritePokemons, setFavoritePokemons] = useState(
     JSON.parse(localStorage.getItem("favoritePokemons")) || []
   );
+  const { pokemonData } = useContext(AppContext);
 
   useEffect(() => {
     if (!favoritePokemons.length === 0) return;
@@ -17,10 +18,9 @@ function App() {
 
   return (
     <>
-      <SearchPokemon setPokemonData={setPokemonData} />
+      <SearchPokemon />
       {pokemonData && (
         <PokemonDataContainer
-          pokemonData={pokemonData}
           favoritePokemons={favoritePokemons}
           setFavoritePokemons={setFavoritePokemons}
         />
